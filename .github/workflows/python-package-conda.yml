@@ -6,7 +6,7 @@ jobs:
   build-linux:
     strategy:
       matrix:
-        platform: [windows-latest]
+        platform: [ubuntu-latest]
     runs-on: ${{ matrix.platform }}
 
     steps:
@@ -19,9 +19,6 @@ jobs:
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
-    - name: Init conda, because it doesn't work otherwise for Windows
-      run: |
-        conda init
     - name: Install dependencies
       run: |
         conda env update --file environment.yml --name base
