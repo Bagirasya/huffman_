@@ -21,7 +21,7 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Init conda, because it doesn't work otherwise for Windows
       run: |
-        conda install powershell_shortcut
+        conda init
     - name: Install dependencies
       run: |
         conda env update --file environment.yml --name base
